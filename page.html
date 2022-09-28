@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        h2{
+            cursor: pointer;
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to my website</h1>
+    <h2 id="signout">SIGNOUT</h2>
+    <script type="module">
+        import { auth } from "./config.js";
+        import { signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+        let signout = document.getElementById("signout");
+        signout.addEventListener("click", ()=> {
+            signOut(auth).then(() => {
+                // Sign-out successful.
+                alert("Sign-out successful.");
+                window.location = "./login.html";
+            }).catch((error) => {
+                // An error happened.
+                
+            });
+        })
+        
+    </script>
+</body>
+
+</html>

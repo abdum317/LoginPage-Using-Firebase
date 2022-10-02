@@ -12,13 +12,23 @@
             color: red;
             text-decoration: underline;
         }
+        div{
+            display: flex;
+            justify-content: space-between;
+        }
     </style>
 </head>
 
 <body>
-    <h1>Welcome to my website</h1>
-    <h2 id="signout">SIGNOUT</h2>
-    <script type="module">
+    <div>
+        <h1>TODO APP</h1>
+        <h2 id="signout">SIGNOUT</h2>
+    </div>
+    <label> Todo:
+        <input type="text" id="input" >
+    </label> <br> <br>
+    <button id="save">Save</button>
+    <!-- <script type="module">
         import { auth } from "./config.js";
         import { signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
         let signout = document.getElementById("signout");
@@ -33,7 +43,8 @@
             });
         })
         
-    </script>
+    </script> -->
+    <script type="module" src="page.js"></script>
 </body>
 
 </html>

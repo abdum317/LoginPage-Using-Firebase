@@ -13,30 +13,30 @@ signout.addEventListener("click", () => {
     });
 })
 
-let todoInput = document.querySelector("#input");
+// let todoInput = document.querySelector("#input");
 
-let saveButton = document.querySelector("#save");
-saveButton.addEventListener("click", async () => {
-    let todosCollection = collection(db, "todoList");
-    await addDoc(todosCollection, { info: todoInput.value, UID: auth.currentUser.uid, time: Timestamp.fromDate(new Date()) });
+// let saveButton = document.querySelector("#save");
+// saveButton.addEventListener("click", async () => {
+//     let todosCollection = collection(db, "todoList");
+//     await addDoc(todosCollection, { info: todoInput.value, UID: auth.currentUser.uid, time: Timestamp.fromDate(new Date()) });
 
 
-    const q = query(todosCollection, where("UID", "==", auth.currentUser.uid));
-    // getDocs(todosCollection)
-    // .then((items) => {
-    //     let snap = [];
-    //     items.docs.forEach(doc => {
-    //         snap.push({ ...doc.data(), id: doc.id })
-    //     });
-    //     console.log(snap.map((item)=> item.info));
-    // })
-    getDocs(q)
-        .then((items) => {
-            let snap = [];
-            items.docs.forEach(doc => {
-                snap.push({ ...doc.data(), id: doc.id })
-            });
-            console.log(snap.map((item)=> item.info));
-        })
+//     const q = query(todosCollection, where("UID", "==", auth.currentUser.uid));
+//     // getDocs(todosCollection)
+//     // .then((items) => {
+//     //     let snap = [];
+//     //     items.docs.forEach(doc => {
+//     //         snap.push({ ...doc.data(), id: doc.id })
+//     //     });
+//     //     console.log(snap.map((item)=> item.info));
+//     // })
+//     getDocs(q)
+//         .then((items) => {
+//             let snap = [];
+//             items.docs.forEach(doc => {
+//                 snap.push({ ...doc.data(), id: doc.id })
+//             });
+//             console.log(snap.map((item)=> item.info));
+//         })
 
-});
+// });

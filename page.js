@@ -15,7 +15,7 @@ signout.addEventListener("click", () => {
 
 // let todoInput = document.querySelector("#input");
 
-// let saveButton = document.querySelector("#save");
+let saveButton = document.querySelector("#save");
 // saveButton.addEventListener("click", async () => {
 //     let todosCollection = collection(db, "todoList");
 //     await addDoc(todosCollection, { info: todoInput.value, UID: auth.currentUser.uid, time: Timestamp.fromDate(new Date()) });
@@ -40,3 +40,16 @@ signout.addEventListener("click", () => {
 //         })
 
 // });
+
+function userDetails(){
+    let userDetail = collection(db, "UserDetail");
+    const q = query(userDetail, where("UID", "==", auth.currentUser.uid));
+    // console.log(auth.currentUser.uid);
+    getDocs(q)
+    .then((items) => {
+        items.docs.forEach(doc => {
+            console.log("abc",doc.id, doc.data());
+        });
+    })
+}
+saveButton.addEventListener("click",userDetails);
